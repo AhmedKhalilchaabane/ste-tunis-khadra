@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taille des arbres d'alignement - Hammam-Chatt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+        .gallery-item {
+            position: relative;
+        }
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.2s ease-in-out;
+        }
+        .gallery-image:hover {
+            transform: scale(1.1);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="Logo de l'entreprise">
+                    </a>
+                </div>
+                <div class="company-name">STE TOUNES EL KHADHRA</div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="quote-button">
+                    <a href="quote.html" class="btn-primary">Obtenir un Devis</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="project-description">
+            <h2>Taille des arbres d'alignement à Hammam-Chatt</h2>
+            <p>
+                Projet d'élagage professionnel des arbres d'alignement à Hammam-Chatt. Notre intervention vise à améliorer la sécurité urbaine et l'esthétique des rues tout en préservant la santé des arbres et en assurant leur croissance harmonieuse.
+            </p>
+            
+            <div class="project-details">
+                <div class="project-detail-item">
+                    <i class="fas fa-cut"></i>
+                    <h4>Élagage Professionnel</h4>
+                    <p>Taille respectueuse des arbres</p>
+                </div>
+                <div class="project-detail-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Sécurité Urbaine</h4>
+                    <p>Prévention des risques</p>
+                </div>
+                <div class="project-detail-item">
+                    <i class="fas fa-tree"></i>
+                    <h4>Esthétique</h4>
+                    <p>Harmonisation du paysage urbain</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h3>Galerie du Projet</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 4/WhatsApp Image 2025-01-06 at 21.39.26 (1).jpeg" alt="Avant la taille" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 4/WhatsApp Image 2025-01-06 at 21.39.26.jpeg" alt="Pendant l'élagage" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 4/WhatsApp Image 2025-01-06 at 21.39.27 (1).jpeg" alt="Détail de la taille" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 4/WhatsApp Image 2025-01-06 at 21.39.27.jpeg" alt="Résultat final" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 4/WhatsApp Image 2025-01-06 at 21.39.28.jpeg" alt="Vue d'ensemble" class="gallery-image">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Votre Entreprise. Tous droits réservés.</p>
+            <ul class="footer-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

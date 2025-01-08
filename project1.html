@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aménagement des jardins de l'ESSECT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .gallery-item {
+            position: relative;
+        }
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.2s ease-in-out;
+        }
+        .gallery-image:hover {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+        }
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .lightbox-image {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .lightbox-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .prev-btn, .next-btn {
+            background-color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="Logo de l'entreprise">
+                    </a>
+                </div>
+                <div class="company-name">STE TOUNES EL KHADHRA</div>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html" class="active">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="quote-button">
+                    <a href="quote.html" class="btn-primary">Obtenir un Devis</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-description">
+            <h2>Aménagement des lots de jardin de l'ESSECT</h2>
+            <p>
+                Notre équipe a entrepris un projet ambitieux de restauration et d'embellissement des espaces verts de l'École Supérieure de Sciences Économiques et Commerciales de Tunis (ESSECT). Ce projet vise à créer un environnement éducatif plus agréable et inspirant pour les étudiants et le personnel.
+            </p>
+            
+            <div class="project-details">
+                <div class="project-detail-item">
+                    <i class="fas fa-tree"></i>
+                    <h4>Aménagement Paysager</h4>
+                    <p>Création d'espaces verts harmonieux et fonctionnels</p>
+                </div>
+                <div class="project-detail-item">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Plantation</h4>
+                    <p>Sélection et installation de végétaux adaptés</p>
+                </div>
+                <div class="project-detail-item">
+                    <i class="fas fa-tint"></i>
+                    <h4>Irrigation</h4>
+                    <p>Système d'arrosage optimisé pour l'entretien</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h3>Galerie du Projet</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 1/1735896239000.jpg" alt="Vue Principale du Jardin" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 1/1735896239008.jpg" alt="Aménagement Paysager" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 1/1735896239012.jpg" alt="Espace Détente" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 1/1735896239021.jpg" alt="Jardin Fleuri" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 1/1735896239028.jpg" alt="Éclairage de Jardin" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+                <img src="" alt="" class="lightbox-image">
+                <button class="lightbox-close">&times;</button>
+                <div class="lightbox-nav">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Votre Entreprise. Tous droits réservés.</p>
+            <ul class="footer-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>

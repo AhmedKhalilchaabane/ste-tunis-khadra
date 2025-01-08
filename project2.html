@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entretien des espaces verts de l'ENA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        .gallery-item {
+            position: relative;
+        }
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.2s ease-in-out;
+        }
+        .gallery-image:hover {
+            transform: scale(1.1);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="Logo de l'entreprise">
+                    </a>
+                </div>
+                <div class="company-name">STE TOUNES EL KHADHRA</div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="quote-button">
+                    <a href="quote.html" class="btn-primary">Obtenir un Devis</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="project-description">
+            <h2>Entretien des espaces verts de l'ENA</h2>
+            <p>
+                Notre équipe assure l'entretien régulier et professionnel des espaces verts de l'École Nationale d'Administration (ENA). Ce projet comprend des opérations minutieuses de désherbage, de plantation de fleurs saisonnières, et une taille artistique des plantes formant le mot "ENA".
+            </p>
+            
+            <div class="project-details">
+                <div class="project-detail-item">
+                    <i class="fas fa-cut"></i>
+                    <h4>Taille Artistique</h4>
+                    <p>Création du mot "ENA" avec les plantes</p>
+                </div>
+                <div class="project-detail-item">
+                    <i class="fas fa-seedling"></i>
+                    <h4>Plantation Saisonnière</h4>
+                    <p>Renouvellement régulier des fleurs</p>
+                </div>
+                <div class="project-detail-item">
+                    <i class="fas fa-broom"></i>
+                    <h4>Entretien Régulier</h4>
+                    <p>Désherbage et maintenance continue</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h3>Galerie du Projet</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 2/1735897918477.jpg" alt="Vue générale des espaces verts" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 2/1735897918483.jpg" alt="Détail de la taille des plantes" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 2/1735897918488.jpg" alt="Massifs fleuris" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 2/1735897918493.jpg" alt="Entretien des pelouses" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="PROJET HAMA/projet 2/1735897918498.jpg" alt="Vue d'ensemble du jardin" class="gallery-image">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Votre Entreprise. Tous droits réservés.</p>
+            <ul class="footer-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
