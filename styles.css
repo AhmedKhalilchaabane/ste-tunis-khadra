@@ -1,26 +1,239 @@
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Services Section */
+.services-section {
+    padding: 80px 0;
+    background-color: #f8fafc;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    color: var(--color-text);
-    background-color: var(--color-light);
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Color Variables */
-:root {
-    --color-primary: #4a6741; /* Deep Forest Green */
-    --color-secondary: #8b7355; /* Warm Earth Brown */
-    --color-accent: #d4ac6e; /* Sandy Gold */
-    --color-light: #f5f3ef; /* Off White */
-    --color-dark: #2c3e2d; /* Dark Forest */
-    --color-text: #333333;
-    --color-text-light: #666666;
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.service-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #718096;
+    line-height: 1.6;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #2d3748;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #718096;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        min-height: 250px;
+    }
+}
+
+/* Gallery and Slider Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 30px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0);
+}
+
+.gallery-item .overlay h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.gallery-item .overlay p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Slider Styles */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-dot.active {
+    background: white;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.slider-arrow.prev {
+    left: 1rem;
+}
+
+.slider-arrow.next {
+    right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .slider-container {
+        height: 400px;
+    }
 }
 
 /* Header and Navigation styles */
@@ -188,16 +401,36 @@ main {
     padding: 20px 0;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-light);
+}
+
+/* Color Variables */
+:root {
+    --color-primary: #4a6741; /* Deep Forest Green */
+    --color-secondary: #8b7355; /* Warm Earth Brown */
+    --color-accent: #d4ac6e; /* Sandy Gold */
+    --color-light: #f5f3ef; /* Off White */
+    --color-dark: #2c3e2d; /* Dark Forest */
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* About Section */
 .about-section {
     padding: 60px 0;
-    background-color: #f8f9fa;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #111;
 }
 
 .about-section h2 {
@@ -235,51 +468,96 @@ main {
 
 /* Services Section */
 .services-section {
-    padding: 60px 0;
-}
-
-.services-section h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 40px;
-    text-align: center;
+    padding: 4rem 0;
+    background-color: var(--color-light);
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .service-card {
     background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     text-align: center;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
-.service-card i {
-    font-size: 2.5rem;
-    color: #007bff;
+.service-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin: 20px 0;
 }
 
 .service-card p {
-    color: #666;
+    font-size: 1.1rem;
     line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.service-card .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+.service-card .btn:hover {
+    background-color: var(--color-dark);
+}
+
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        min-height: 350px;
+        padding: 30px;
+    }
+
+    .service-card img {
+        height: 200px;
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem;
+    }
 }
 
 /* Portfolio Section */
@@ -401,7 +679,7 @@ main {
 /* Contact Section */
 .contact-section {
     padding: 80px 0;
-    background: linear-gradient(rgba(0, 123, 255, 0.9), rgba(0, 123, 255, 0.9)), url('contact-bg.jpg');
+    background: linear-gradient(#2A4858, #2A4858), url('contact-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -459,16 +737,19 @@ main {
 
 .hero-content h1 {
     font-size: 3.5rem;
-    margin-bottom: 20px;
+    font-weight: bold;
+    color: #2c5282;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    color: white;
+    margin-bottom: 20px;
 }
 
 .hero-content p {
     font-size: 1.5rem;
-    opacity: 0.9;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    color: rgba(255, 255, 255, 0.9);
+    color: #4a5568;
+    max-width: 800px;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
 }
 
 /* Projects Page Styles */
@@ -783,7 +1064,6 @@ main {
     background-attachment: fixed;
     color: white;
     text-align: center;
-    position: relative;
 }
 
 .cta-section::before {
@@ -1234,7 +1514,7 @@ main {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 25px;
-    color: rgba(255, 255, 255, 0.9);
+    color:#666;
 }
 
 .testimonial-author {
@@ -1253,13 +1533,15 @@ main {
 }
 
 .author-info h4 {
+    color: #333;
+    margin: 0 0 5px 0;
     font-size: 1.1rem;
-    margin-bottom: 5px;
 }
 
 .author-info p {
-    font-size: 0.9rem;
     color: var(--color-accent);
+    margin: 0;
+    font-size: 0.9rem;
 }
 
 /* Projects CTA Section */
@@ -1323,69 +1605,185 @@ main {
 
 /* About Page Styles */
 .about-hero {
-    background: linear-gradient(rgba(44, 62, 45, 0.8), rgba(44, 62, 45, 0.8)), url('about-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
+    padding: 4rem 0;
     text-align: center;
-    color: white;
-    margin-top: 80px;
-    position: relative;
-}
-
-.about-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('pattern.png') repeat;
-    opacity: 0.1;
-    pointer-events: none;
-}
-
-.about-hero .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    padding: 0 20px;
+    margin-bottom: 3rem;
 }
 
 .about-hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    font-weight: 700;
-    letter-spacing: 1px;
+    color: #2c5282;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-.about-hero p {
+.about-hero .subtitle {
+    color: #4a5568;
     font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    line-height: 1.6;
 }
 
-/* Responsive Adjustments for About Hero */
-@media screen and (max-width: 768px) {
-    .about-hero {
-        height: 300px;
-        margin-top: 70px;
+.about-content {
+    padding: 80px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    color: #2c5282;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    color: #4a5568;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.services-section, .values-section {
+    margin-bottom: 4rem;
+}
+
+.services-grid, .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card, .value-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8fafc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover, .value-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card i, .value-card i {
+    font-size: 2.5rem;
+    color: #2c5282;
+    margin-bottom: 1rem;
+}
+
+.service-card h3, .value-card h3 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.service-card p, .value-card p {
+    color: #718096;
+}
+
+.expertise-section {
+    margin-bottom: 4rem;
+}
+
+.expertise-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.expertise-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+.expertise-list i {
+    color: #2c5282;
+    margin-right: 1rem;
+}
+
+.cta-section {
+    background-color: #2c5282;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: #2c5282;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #f8fafc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid, .values-grid {
+        grid-template-columns: 1fr;
     }
 
     .about-hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
-    .about-hero p {
-        font-size: 1.1rem;
-        padding: 0 20px;
+    .about-text h2 {
+        font-size: 1.8rem;
+        
+    }
+
+    .cta-section h2 {
+        font-size: 1.8rem;
     }
 }
 
@@ -1428,7 +1826,7 @@ main {
     padding: 40px 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .overview-card:hover {
@@ -2631,4 +3029,493 @@ main {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+}
+
+/* Hero Banner Styles */
+.hero-banner {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 800px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Services Section Styles */
+.services {
+    padding: 5rem 0;
+    background-color: #f8fafc;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    color: #2c5282;
+    font-size: 1.5rem;
+}
+
+.service-card p {
+    padding: 0 1.5rem 1.5rem;
+    color: #4a5568;
+}
+
+.service-link {
+    display: inline-block;
+    margin: 0 1.5rem 1.5rem;
+    color: #2c5282;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.service-link:hover {
+    color: #1a365d;
+}
+
+/* About Preview Section */
+.about-preview {
+    position: relative;
+    background-color: #2c5282;
+    color: white;
+    padding: 5rem 0;
+}
+
+.about-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('PROJET HAMA/photos/beautiful-views-within.jpg') center/cover no-repeat;
+    z-index: 0;
+}
+
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 82, 130, 0.9);
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.about-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: #2c5282;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.about-link:hover {
+    background: #f8fafc;
+}
+
+/* CTA Section Styles */
+.cta-section {
+    position: relative;
+    padding: 5rem 0;
+    color: white;
+    text-align: center;
+}
+
+.cta-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('PROJET HAMA/photos/7268.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #2c5282;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #1a365d;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content h2,
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-banner {
+        min-height: 400px;
+    }
+
+    .service-image {
+        height: 200px;
+    }
+}
+
+/* Page Title Styles */
+.page-title {
+    text-align: center;
+    padding: 60px 0;
+    background-color: var(--color-light);
+    margin-bottom: 40px;
+}
+
+.page-title h1 {
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.page-title p {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        padding: 40px 0;
+    }
+
+    .page-title h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-title p {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+}
+
+/* Page Title Styles with Animated Backgrounds */
+.page-title {
+    text-align: center;
+    padding: 120px 0;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.page-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    animation: zoomBackground 20s infinite alternate;
+}
+
+@keyframes zoomBackground {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Specific page backgrounds */
+.page-title.about::before {
+    background-image: url('../PROJET HAMA/photos/beautiful-views-within.jpg');
+}
+
+.page-title.services::before {
+    background-image: url('../PROJET HAMA/photos/7268.png');
+}
+
+.page-title.projects::before {
+    background-image: url('../PROJET HAMA/photos/5609.png');
+}
+
+.page-title.contact::before {
+    background-image: url('../PROJET HAMA/photos/plan3-420x275.jpg');
+}
+
+.page-title.quote::before {
+    background-image: url('../PROJET HAMA/photos/7268.png');
+}
+
+.page-title h1 {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.page-title p {
+    font-size: 1.2rem;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%);
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        padding: 80px 0;
+    }
+
+    .page-title h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-title p {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+}
+
+/* Hero Section Styles */
+.hero {
+    height: 110vh; /* Full viewport height */
+    display: flex;
+    /* Adjust image to the right and text to the left */
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    color: rgb(255, 255, 255);
+   
+    padding: 0px;
+    margin-right: 1500px;
+    margin-left:0px;
+}
+
+.hero-content {
+    display: flex;
+    height: 90vh;
+    padding: 0px;
+    margin: 0px;
+    background-color: #D4F3E3;
+   
+
+}
+.hero h1 {
+    font-size: 4rem; /* Larger font size for emphasis */
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    color: #000000; /* Match the green aesthetic of the reference */
+    text-shadow: none; /* Remove shadow for cleaner text */
+    text-align: left; /* Align text to the left */
+   margin-top: 100px;
+}
+
+
+.hero p {
+    font-size: 1.5rem; /* Slightly larger text for better readability */
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+    color:  rgb(51, 51, 51); /* Darker text for better contrast */
+    line-height: 1.8; /* Increase line spacing */
+    text-align: left; /* Align text to the left */
+}
+
+.text-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: flex-start;
+    padding-left: 50px; /* Adjust padding for alignment */
+    padding-right: 20px;
+    background-color: #D4F3E3;
+}
+
+.image-container {
+    flex: 2;
+    background-image: url('PROJET HAMA/7268.png');
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+   
+    padding-left: 1200px;
+    margin-left:0px;
 }

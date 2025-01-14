@@ -267,3 +267,172 @@ function showNotification(message, type = 'info') {
         setTimeout(() => notification.remove(), 300);
     }, 5000);
 }
+
+// Mobile Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+});
+
+// Add shadow to header on scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 0) {
+        header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.boxShadow = 'none';
+    }
+});
+
+// Slider functionality
+class Slider {
+    constructor(container) {
+        this.container = container;
+        this.slider = container.querySelector('.slider');
+        this.slides = container.querySelectorAll('.slide');
+        this.prevBtn = container.querySelector('.slider-arrow.prev');
+        this.nextBtn = container.querySelector('.slider-arrow.next');
+        this.dots = container.querySelectorAll('.slider-dot');
+        
+        this.currentSlide = 0;
+        this.slidesCount = this.slides.length;
+        
+        this.init();
+    }
+    
+    init() {
+        // Add event listeners
+        this.prevBtn?.addEventListener('click', () => this.prevSlide());
+        this.nextBtn?.addEventListener('click', () => this.nextSlide());
+        
+        // Add dot click events
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+        
+        // Add touch events for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        this.container.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        this.container.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe(touchStartX, touchEndX);
+        }, false);
+        
+        // Start auto-sliding
+        this.startAutoSlide();
+    }
+    
+    handleSwipe(startX, endX) {
+        const diff = startX - endX;
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (diff > 0) {
+                this.nextSlide();
+            } else {
+                this.prevSlide();
+            }
+        }
+    }
+    
+    goToSlide(index) {
+        this.currentSlide = index;
+        this.updateSlider();
+    }
+    
+    nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slidesCount;
+        this.updateSlider();
+    }
+    
+    prevSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.slidesCount) % this.slidesCount;
+        this.updateSlider();
+    }
+    
+    updateSlider() {
+        // Update slider position
+        this.slider.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+        
+        // Update dots
+        this.dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+    
+    startAutoSlide() {
+        setInterval(() => {
+            this.nextSlide();
+        }, 5000); // Change slide every 5 seconds
+    }
+}
+
+// Initialize sliders when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize existing gallery functionality
+    initializeGallery();
+    
+    // Initialize sliders
+    const sliderContainers = document.querySelectorAll('.slider-container');
+    sliderContainers.forEach(container => new Slider(container));
+});
+
+// Gallery functionality
+function initializeGallery() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const imgSrc = this.querySelector('img').src;
+            const title = this.querySelector('h3')?.textContent || '';
+            const description = this.querySelector('p')?.textContent || '';
+            openLightbox(imgSrc, title, description);
+        });
+    });
+}
+
+// Lightbox functionality
+function openLightbox(imgSrc, title, description) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <img src="${imgSrc}" alt="${title}">
+            <div class="lightbox-text">
+                <h3>${title}</h3>
+                <p>${description}</p>
+            </div>
+            <button class="lightbox-close">&times;</button>
+        </div>
+    `;
+    
+    document.body.appendChild(lightbox);
+    
+    // Prevent body scrolling when lightbox is open
+    document.body.style.overflow = 'hidden';
+    
+    // Close lightbox when clicking outside or on close button
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox || e.target.className === 'lightbox-close') {
+            document.body.removeChild(lightbox);
+            document.body.style.overflow = '';
+        }
+    });
+}

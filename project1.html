@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aménagement des jardins de l'ESSECT</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="gallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .gallery-grid {
@@ -25,7 +24,7 @@
         .gallery-image:hover {
             transform: scale(1.1);
         }
-        .gallery-overlay {
+        .overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -39,52 +38,8 @@
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
         }
-        .gallery-item:hover .gallery-overlay {
+        .gallery-item:hover .overlay {
             opacity: 1;
-        }
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: none;
-        }
-        .lightbox-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        .lightbox-image {
-            width: 100%;
-            height: 500px;
-            object-fit: contain;
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .lightbox-nav {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .prev-btn, .next-btn {
-            background-color: #fff;
-            border: none;
-            padding: 10px;
-            font-size: 24px;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -99,13 +54,11 @@
                 </div>
                 <div class="company-name">STE TOUNES EL KHADHRA</div>
             </div>
-            
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-
             <ul class="nav-menu">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -118,19 +71,16 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <section class="project-description">
-            <h2>Aménagement des lots de jardin de l'ESSECT</h2>
-            <p>
-                Notre équipe a entrepris un projet ambitieux de restauration et d'embellissement des espaces verts de l'École Supérieure de Sciences Économiques et Commerciales de Tunis (ESSECT). Ce projet vise à créer un environnement éducatif plus agréable et inspirant pour les étudiants et le personnel.
-            </p>
+            <h2>Jardin Méditerranéen</h2>
+            <p>Un espace vert luxuriant adapté au climat local</p>
             
             <div class="project-details">
                 <div class="project-detail-item">
                     <i class="fas fa-tree"></i>
                     <h4>Aménagement Paysager</h4>
-                    <p>Création d'espaces verts harmonieux et fonctionnels</p>
+                    <p>Création d'espaces verts harmonieux</p>
                 </div>
                 <div class="project-detail-item">
                     <i class="fas fa-leaf"></i>
@@ -140,7 +90,7 @@
                 <div class="project-detail-item">
                     <i class="fas fa-tint"></i>
                     <h4>Irrigation</h4>
-                    <p>Système d'arrosage optimisé pour l'entretien</p>
+                    <p>Système d'arrosage optimisé</p>
                 </div>
             </div>
         </section>
@@ -149,51 +99,38 @@
             <h3>Galerie du Projet</h3>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="PROJET HAMA/projet 1/1735896239000.jpg" alt="Vue Principale du Jardin" class="gallery-image">
-                    <div class="gallery-overlay">
+                    <img src="PROJET HAMA/projet 1/1735896239000.jpg" alt="Vue du jardin méditerranéen" class="gallery-image">
+                    <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="PROJET HAMA/projet 1/1735896239008.jpg" alt="Aménagement Paysager" class="gallery-image">
-                    <div class="gallery-overlay">
+                    <img src="PROJET HAMA/projet 1/1735896239008.jpg" alt="Espace de détente" class="gallery-image">
+                    <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="PROJET HAMA/projet 1/1735896239012.jpg" alt="Espace Détente" class="gallery-image">
-                    <div class="gallery-overlay">
+                    <img src="PROJET HAMA/projet 1/1735896239012.jpg" alt="Allée principale" class="gallery-image">
+                    <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="PROJET HAMA/projet 1/1735896239021.jpg" alt="Jardin Fleuri" class="gallery-image">
-                    <div class="gallery-overlay">
+                    <img src="PROJET HAMA/projet 1/1735896239021.jpg" alt="Détail du jardin 1" class="gallery-image">
+                    <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="PROJET HAMA/projet 1/1735896239028.jpg" alt="Éclairage de Jardin" class="gallery-image">
-                    <div class="gallery-overlay">
+                    <img src="PROJET HAMA/projet 1/1735896239028.jpg" alt="Détail du jardin 2" class="gallery-image">
+                    <div class="overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Lightbox -->
-        <div class="lightbox" id="lightbox">
-            <div class="lightbox-content">
-                <img src="" alt="" class="lightbox-image">
-                <button class="lightbox-close">&times;</button>
-                <div class="lightbox-nav">
-                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
-                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </div>
     </main>
-
     <footer>
         <div class="container">
             <p>&copy; 2025 Votre Entreprise. Tous droits réservés.</p>
@@ -206,8 +143,5 @@
             </ul>
         </div>
     </footer>
-
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
-    <script src="gallery.js"></script>
 </body>
 </html>
